@@ -43,7 +43,5 @@ public class ATM {
         int pin = 89;
         Atm_process(name,pin);
 
-
     }
-
 }

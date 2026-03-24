@@ -6,8 +6,9 @@ class Node{
         next = null;
     }
 }
-class linkedlist{
+class linkedll{
     Node head;
+    Node tail;
     void insertAtEnd(int data){
         Node newNode = new Node(data);
         if(head == null){
@@ -19,6 +20,7 @@ class linkedlist{
             temp = temp.next;
         }
         temp.next=newNode;
+        tail = newNode;
     }
     void insertAtbeginning(int data){
         Node newNode = new Node(data);
@@ -43,6 +45,7 @@ class linkedlist{
         while(temp.next.next!=null){
             temp=temp.next;
         }
+        tail = temp;
         temp.next = null;
     }
     void print(){
@@ -50,16 +53,20 @@ class linkedlist{
             return;
         }
         Node temp = head;
-        while(temp!=null){
+//        while(temp!=null){
+//            System.out.print(temp.data+"-->");
+//            temp = temp.next;
+//        }
+        while(!tail){
             System.out.print(temp.data+"-->");
             temp = temp.next;
         }
         System.out.print(temp);
     }
 }
-public class ll {
+public class linkedlist {
     public static void main(String []args) {
-        linkedlist lis = new linkedlist();
+        linkedll lis = new linkedll();
         lis.insertAtbeginning(10);
         lis.insertAtbeginning(20);
         lis.insertAtbeginning(30);
