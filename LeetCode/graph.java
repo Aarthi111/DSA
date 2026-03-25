@@ -29,8 +29,6 @@ class Graph{
             }
         }
     }
-    
-    
     void dfs(int start,boolean[] vis){
         vis[start]=true;
         System.out.print(start+" ");
@@ -41,6 +39,24 @@ class Graph{
            
         }
         
+    }
+    //Directed unweighted graph
+    void bfsShortestPath(int src){
+        int[] dist = new int[V];
+        Arrays.fill(dist,-1);
+        dist[src]=0;
+        Queue<Integer> q = new LinkedList<>();
+        q.add(src);
+        while(!q.isEmpty()){
+            int n = q.poll();
+            for(int neigh : adjList.get(n)){
+                if(dist[neigh]==-1){
+                    dist[neigh]=dist[n]+1;
+                }
+                q.add(neigh);
+            }
+        }
+        System.out.println(Arrays.toString(dist));
     }
 }
 public class graph{
@@ -60,6 +76,6 @@ public class graph{
         boolean[] vis = new boolean[8];
         g.dfs(0,vis);
         
-        
+        g.bfsShortestPath(1);
     }
 }
